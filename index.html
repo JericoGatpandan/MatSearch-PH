@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MatSearch PH - Construction Materials Directory</title>
+    <meta
+      name="description"
+      content="Find construction materials, hardware supplies, and building materials near you in the Philippines"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <div class="logo">
+          <div class="logo-icon">
+            <i class="fas fa-hammer"></i>
+          </div>
+          <div class="logo-text">
+            <h1>MatSearch PH</h1>
+            <p>Construction Materials Directory</p>
+          </div>
+        </div>
+        <div style="text-align: right">
+          <p style="font-size: 0.9rem; opacity: 0.8">Find materials near you</p>
+          <p style="font-size: 0.8rem; opacity: 0.6">Philippines</p>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <!-- Search Section -->
+      <div class="search-section">
+        <div class="search-bar">
+          <i class="fas fa-search search-icon"></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for materials (e.g., 10mm rebar, cement, paint, electrical wire)"
+          />
+        </div>
+
+        <div class="filters">
+          <div class="location-filter">
+            <label for="locationSelect">
+              <i class="fas fa-map-marker-alt"></i> Filter by Location
+            </label>
+            <select id="locationSelect">
+              <option value="">All Locations</option>
+              <option value="Sipocot">Sipocot, Camarines Sur</option>
+              <option value="Naga City">Naga City, Camarines Sur</option>
+              <option value="Libmanan">Libmanan, Camarines Sur</option>
+              <option value="Iriga City">Iriga City, Camarines Sur</option>
+              <option value="Legazpi City">Legazpi City, Albay</option>
+            </select>
+          </div>
+
+          <div class="category-list">
+            <button class="category-btn" data-category="all">
+              All Materials
+            </button>
+            <button class="category-btn" data-category="Steel">Steel</button>
+            <button class="category-btn" data-category="Cement">Cement</button>
+            <button class="category-btn" data-category="Paint">Paint</button>
+            <button class="category-btn" data-category="Electrical">
+              Electrical
+            </button>
+            <button class="category-btn" data-category="Lumber">Lumber</button>
+            <button class="category-btn" data-category="Aggregates">
+              Aggregates
+            </button>
+          </div>
+        </div>
+
+        <div id="stats"></div>
+      </div>
+
+      <!-- Store Listings -->
+      <div id="storeList" class="store-grid">
+        <!-- Store cards will be dynamically generated here -->
+      </div>
+
+      <!-- Add Store Form -->
+      <div class="form-section">
+        <h3><i class="fas fa-plus-circle"></i> Add Your Store</h3>
+        <p style="text-align: center; margin-bottom: 2rem; color: #666">
+          Help others find construction materials by adding your store to our
+          directory
+        </p>
+
+        <form id="addStoreForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="storeName">
+                <i class="fas fa-store"></i> Store Name *
+              </label>
+              <input
+                type="text"
+                id="storeName"
+                name="storeName"
+                placeholder="e.g., Sipocot Hardware & Construction Supply"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="material">
+                <i class="fas fa-tools"></i> Material/Product *
+              </label>
+              <input
+                type="text"
+                id="material"
+                name="material"
+                placeholder="e.g., 10mm Rebar (Grade 40)"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="price">
+                <i class="fas fa-peso-sign"></i> Price *
+              </label>
+              <input
+                type="text"
+                id="price"
+                name="price"
+                placeholder="e.g., ₱180"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="unit"> <i class="fas fa-ruler"></i> Unit </label>
+              <input
+                type="text"
+                id="unit"
+                name="unit"
+                placeholder="e.g., per piece, per bag, per meter"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="location">
+                <i class="fas fa-map-marker-alt"></i> Location *
+              </label>
+              <input
+                type="text"
+                id="location"
+                name="location"
+                placeholder="e.g., Sipocot, Camarines Sur"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="contact">
+                <i class="fas fa-phone"></i> Contact Number *
+              </label>
+              <input
+                type="tel"
+                id="contact"
+                name="contact"
+                placeholder="e.g., 09123456789"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="description">
+              <i class="fas fa-info-circle"></i> Description
+            </label>
+            <input
+              type="text"
+              id="description"
+              name="description"
+              placeholder="Brief description of the material (optional)"
+            />
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-plus"></i> Add Store to Directory
+          </button>
+        </form>
+      </div>
+
+      <!-- Footer -->
+      <footer
+        style="
+          text-align: center;
+          margin-top: 3rem;
+          padding: 2rem;
+          color: white;
+          opacity: 0.8;
+        "
+      >
+        <p>&copy; 2024 MatSearch PH - Construction Materials Directory</p>
+        <p style="font-size: 0.9rem; margin-top: 0.5rem">
+          Helping builders and contractors find quality materials across the
+          Philippines
+        </p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
